@@ -1,17 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import Signup from "./pages/signup/signup.js";
+import Login from "./pages/login/login";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const Main=()=>{
+	let [screen,setScreen]=useState(0)
+	return(
+	 <div>
+	  {screen===1?
+	 <Signup  setScreen={setScreen} />
+	 :
+	 <Login setScreen={setScreen}/>
+	  }
+	 </div>
+	)
+  }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(
+	<>
+	
+ 
+	<Main/>
+	
+	  </>
+	
+	,
+document.getElementById('root'))
+
